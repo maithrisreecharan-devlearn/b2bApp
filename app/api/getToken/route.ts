@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
+import { env } from "process";
 
 export async function POST() {
   try {
     const params = new URLSearchParams({
       grant_type: "client_credentials",
-      client_id: "3MVG91oqviqJKoEHkImb6k.AkO_iEibSyn6Nd0Cho3GqJkDHqvk6gNhylsmiUHtr5wyK2Jxy23ZlMn.Pw0o8E",
-      client_secret: "05DA9CA94D0B2CC0622EE349440EEE62D1518F7DDC3D30BCCD0E2712B451F1E5",
+      client_id: process.env.SALESFORCE_CLIENT_ID || '',
+      client_secret: process.env.SALESFORCE_CLIENT_SECRET || "",
     });
 
     
